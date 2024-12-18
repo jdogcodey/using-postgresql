@@ -3,4 +3,8 @@ const showUsers = (req, res) => {
   res.send("Usernames to be shown here");
 };
 
-module.exports = { showUsers };
+const showForm = (req, res) => {
+  res.render("inputUsername");
+};
+
+module.exports = { showUsers, showForm };
