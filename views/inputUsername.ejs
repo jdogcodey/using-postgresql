@@ -6,9 +6,11 @@
     <title>New User</title>
 </head>
 <body>
+    <%- include('./partials/errors.ejs')%>
     <form action="/new" method="POST">
         <label for="username">Username:</label>
         <input name="username" type="text" id="username" required>
+        <button type="submit">Submit</button>
     </form>
 </body>
 </html>
