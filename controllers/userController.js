@@ -12,10 +12,15 @@ const validateUser = [
     .withMessage("Username can only contain letters, numbers, _ - and ."),
 ];
 
-async function showUsers(req, res) {
+function getHomepage() {
+  const usernames = showUsers();
+  res.render("index", { usernames: usernames });
+}
+
+async function showUsers() {
   const usernames = await db.getAllUsernames();
   console.log("Usernames: ", usernames);
-  res.send("Usernames: " + usernames.map((user) => user.username).join(", "));
+  return usernames;
 }
 
 const showForm = (req, res) => {
@@ -37,4 +42,4 @@ const submitUser = [
   },
 ];
 
-module.exports = { showUsers, showForm, submitUser };
+module.exports = { showUsers, showForm, submitUser, getHomepage };
