@@ -6,6 +6,10 @@
     <title>Homepage</title>
 </head>
 <body>
-    
+    <h1>All Users:</h1>
+    <%console.log(usernames)%>
+    <% usernames.forEach((user) => { %>
+        <p><%=user.username%></p>
+    <% })%>
 </body>
 </html>

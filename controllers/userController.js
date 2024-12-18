@@ -12,8 +12,8 @@ const validateUser = [
     .withMessage("Username can only contain letters, numbers, _ - and ."),
 ];
 
-function getHomepage() {
-  const usernames = showUsers();
+async function getHomepage(req, res) {
+  const usernames = await showUsers();
   res.render("index", { usernames: usernames });
 }
 
