@@ -1,4 +1,5 @@
 const pool = require("./pool");
+const main = require("./populatedb");
 
 async function getAllUsernames() {
   const { rows } = await pool.query("SELECT * FROM usernames");
@@ -17,8 +18,15 @@ async function searchUsernames(username) {
   return rows;
 }
 
+async function emptyDB() {
+  await pool.query("DROP TABLE usernames;");
+  await main();
+  return;
+}
+
 module.exports = {
   getAllUsernames,
   insertUsername,
   searchUsernames,
+  emptyDB,
 };

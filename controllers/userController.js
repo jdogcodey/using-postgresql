@@ -52,4 +52,16 @@ async function search(req, res) {
   });
 }
 
-module.exports = { showUsers, showForm, submitUser, getHomepage, search };
+async function emptyDB(req, res) {
+  await db.emptyDB();
+  res.redirect("/");
+}
+
+module.exports = {
+  showUsers,
+  showForm,
+  submitUser,
+  getHomepage,
+  search,
+  emptyDB,
+};
