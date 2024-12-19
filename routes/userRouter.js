@@ -5,5 +5,6 @@ const userController = require("../controllers/userController");
 userRouter.get("/", userController.getHomepage);
 userRouter.get("/new", userController.showForm);
 userRouter.post("/new", userController.submitUser);
+userRouter.get("/search", userController.search);
 
 module.exports = userRouter;

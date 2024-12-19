@@ -42,4 +42,15 @@ const submitUser = [
   },
 ];
 
-module.exports = { showUsers, showForm, submitUser, getHomepage };
+async function search(req, res) {
+  const { searchTerm } = req.query;
+  const searchResult = await db.searchUsernames(searchTerm);
+  console.log(searchResult);
+  const usernames = await showUsers();
+  res.render("index", {
+    usernames: usernames,
+    searchResult: searchResult,
+  });
+}
+
+module.exports = { showUsers, showForm, submitUser, getHomepage, search };

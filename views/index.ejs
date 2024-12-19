@@ -7,10 +7,11 @@
 </head>
 <body>
     <form action="/search" method="GET">
-        <label for="search-bar">Search:</label>
-        <input type="text" name="search-bar" id="search-bar" required>
+        <label for="searchTerm">Search:</label>
+        <input type="text" name="searchTerm" id="searchTerm" required>
         <button type="submit">Submit</button>
     </form>
+    <%- include('partials/search.ejs')%>
     <h1>All Users:</h1>
     <%console.log(usernames)%>
     <% usernames.forEach((user) => { %>
