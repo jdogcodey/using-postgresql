@@ -1,5 +1,5 @@
 <% if (searchResult && searchResult.length > 0) {searchResult.forEach((user) => {%>
     <p><%=user.username%> does exist</p>
-<% })} else { %>
+<% })} else if (searchResult === null){} else { %>
     <p>User does not exist</p>
 <%}%>

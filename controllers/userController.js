@@ -14,12 +14,11 @@ const validateUser = [
 
 async function getHomepage(req, res) {
   const usernames = await showUsers();
-  res.render("index", { usernames: usernames });
+  res.render("index", { usernames: usernames, searchResult: null });
 }
 
 async function showUsers() {
   const usernames = await db.getAllUsernames();
-  console.log("Usernames: ", usernames);
   return usernames;
 }
 
